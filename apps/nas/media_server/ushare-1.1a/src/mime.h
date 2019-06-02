@@ -1,0 +1,222 @@
+/*
+ * mime.h : GeeXboX uShare media file MIME-type association header.
+ * Originally developped for the GeeXboX project.
+ * Copyright (C) 2005-2007 Benjamin Zores <ben@geexbox.org>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ */
+
+#ifndef _MIME_H_
+#define _MIME_H_
+
+#define INVALID_MIME_EXTENSION -1
+#define INVALID_MIME_CLASS -1
+#define INVALID_MIME_PROTOCOL -1
+
+/*  define the list No., 
+	it will be used as index of mime description. 
+	by HouXB, 06Feb12 */
+typedef enum _MIME_EXTENTION_LIST_NO{
+	/* video */
+	MIME_EXTENSION_ASF, 
+	MIME_EXTENSION_AVC, 
+	MIME_EXTENSION_AVI, 
+	MIME_EXTENSION_DV,  
+	MIME_EXTENSION_DIVX,
+	MIME_EXTENSION_WMV, 
+	MIME_EXTENSION_MJPG,
+	MIME_EXTENSION_MJPEG,
+	MIME_EXTENSION_MPEG,
+	MIME_EXTENSION_MPG, 
+	MIME_EXTENSION_MPE, 
+	MIME_EXTENSION_MP2P,
+	MIME_EXTENSION_VOB, 
+	MIME_EXTENSION_MP2T,
+	MIME_EXTENSION_M1V, 
+	MIME_EXTENSION_M2V, 
+	MIME_EXTENSION_MPG2,
+	MIME_EXTENSION_MPEG2,
+	MIME_EXTENSION_M4V, 
+	MIME_EXTENSION_M4P, 
+	MIME_EXTENSION_MP4PS,
+	MIME_EXTENSION_TS,  
+	MIME_EXTENSION_OGM, 
+	MIME_EXTENSION_MKV, 
+	MIME_EXTENSION_RMVB,
+	MIME_EXTENSION_MOV, 
+	MIME_EXTENSION_HDMOV,
+	MIME_EXTENSION_QT,  
+	MIME_EXTENSION_BIN, 
+	MIME_EXTENSION_ISO,
+	/* audio */
+	MIME_EXTENSION_3GP,    
+	MIME_EXTENSION_AAC,    
+	MIME_EXTENSION_AC3,    
+	MIME_EXTENSION_AIF,    
+	MIME_EXTENSION_AIFF,   
+	MIME_EXTENSION_AT3P,   
+	MIME_EXTENSION_AU,     
+	MIME_EXTENSION_SND,    
+	MIME_EXTENSION_DTS,    
+	MIME_EXTENSION_RMI,    
+	MIME_EXTENSION_MID,    
+	MIME_EXTENSION_MP1,    
+	MIME_EXTENSION_MP2,    
+	MIME_EXTENSION_MP3,    
+	MIME_EXTENSION_MP4,    
+	MIME_EXTENSION_M4A,    
+	MIME_EXTENSION_OGG,    
+	MIME_EXTENSION_WAV,    
+	MIME_EXTENSION_PCM,    
+	MIME_EXTENSION_LPCM,   
+	MIME_EXTENSION_L16,    
+	MIME_EXTENSION_WMA,    
+	MIME_EXTENSION_MKA,    
+	MIME_EXTENSION_RA,     
+	MIME_EXTENSION_RM,     
+	MIME_EXTENSION_RAM,    
+	MIME_EXTENSION_FLAC,   
+	/* image */
+	MIME_EXTENSION_BMP, 
+	MIME_EXTENSION_ICO, 
+	MIME_EXTENSION_GIF, 
+	MIME_EXTENSION_JPEG,
+	MIME_EXTENSION_JPG, 
+	MIME_EXTENSION_JPE, 
+	MIME_EXTENSION_PCD, 
+	MIME_EXTENSION_PNG, 
+	MIME_EXTENSION_PNM, 
+	MIME_EXTENSION_PPM, 
+	MIME_EXTENSION_QTI, 
+	MIME_EXTENSION_QTF, 
+	MIME_EXTENSION_QTIF,
+	MIME_EXTENSION_TIF, 
+	MIME_EXTENSION_TIFF,
+
+	/* playlist files. */
+	MIME_EXTENSION_PLS,
+	MIME_EXTENSION_M3U,
+	MIME_EXTENSION_ASX,
+	/* subtitle text files. */
+	MIME_EXTENSION_SRT,
+	MIME_EXTENSION_SSA,
+	MIME_EXTENSION_STL,
+	MIME_EXTENSION_PSB,
+	MIME_EXTENSION_PJS,
+	MIME_EXTENSION_SUB,
+	MIME_EXTENSION_IDX,
+	MIME_EXTENSION_DKS,
+	MIME_EXTENSION_SCR,
+	MIME_EXTENSION_TTS,
+	MIME_EXTENSION_VSF,
+	MIME_EXTENSION_ZEG,
+	MIME_EXTENSION_MPL,
+	/* Miscellaneous text files. */
+	MIME_EXTENSION_BUP,
+	MIME_EXTENSION_IFO,
+	MIME_EXTENSION_LIST_MAX,
+	
+}MIME_EXTENTION_LIST_NO;
+
+typedef enum _MIME_CLASS_LIST_NO{
+	UPNP_VIDEO,
+	UPNP_AUDIO,
+	UPNP_PHOTO,
+	UPNP_PLAYLIST,
+	UPNP_TEXT,
+	UPNP_FOLDER,
+	MIME_CLASS_LIST_MAX,
+}MIME_CLASS_LIST_NO;
+
+typedef enum _MIME_PROTOCOL_LIST_NO{
+	/* video */
+	VIDEO_X_MS_ASF,
+	VIDEO_AVI,
+	VIDEO_X_DV,
+	VIDEO_X_MS_WMV,
+	VIDEO_X_MOTION_JPEG,
+	VIDEO_MPEG,
+	VIDEO_MP2P,
+	VIDEO_MP2T,
+	VIDEO_MPEG2,
+	VIDEO_MP4,
+	VIDEO_X_NERODIGITAL_PS,
+	VIDEO_QUICKTIME,	
+
+	/* audio */
+	AUDIO_3GPP,
+	AUDIO_X_AAC,
+	AUDIO_X_AC3,
+	AUDIO_AIFF,
+	AUDIO_X_ATRAC3,
+	AUDIO_BASIC,
+	AUDIO_X_DTS,
+	AUDIO_MIDI,
+	AUDIO_MP1,
+	AUDIO_MP2,
+	AUDIO_MPEG,
+	AUDIO_MP4,
+	AUDIO_X_OGG,
+	AUDIO_WAV,
+	AUDIO_L16,
+	AUDIO_X_MS_WMA,
+	AUDIO_X_PN_REALAUDIO,
+	AUDIO_X_FLAC,
+	AUDIO_X_SCPLS,
+	AUDIO_MPEGURL,
+	
+	/* image */
+	IMAGE_BMP,
+	IMAGE_X_ICON,
+	IMAGE_GIF,
+	IMAGE_JPEG,
+	IMAGE_X_MS_BMP,
+	IMAGE_PNG,
+	IMAGE_X_PORTABLE_ANYMAP,
+	IMAGE_X_PORTABLE_PIXMAP,
+	IMAGE_X_QUICKTIME,
+	IMAGE_TIFF,
+	
+	/* text */
+	TEXT_SRT, /* SUBRIP */
+	TEXT_SSA, /* SUBSTATION ALPHA */
+	TEXT_PSB, /* POWERDIVX */
+	TEXT_PJS, /* PHOENIX JAPANIM */
+	TEXT_SUB, /* MICRODVD */
+	TEXT_IDX, /* VOBSUB */
+	TEXT_DKS, /* DKS */
+	TEXT_SCR, /* MACSUB */
+	TEXT_TTS, /* TURBOTITLER */
+	TEXT_VSF, /* VIPLAY */
+	TEXT_ZEG, /* ZEROG */
+	TEXT_MPL, /* MPL */
+	
+	/* MISCELLANEOUS TEXT FILES */
+	TEXT_BUP, /* DVD BACKUP */
+	TEXT_IFO, /* DVD INFORMATION */
+	MIME_PROTOCOL_LIST_MAX,	
+}MIME_PROTOCOL_LIST_NO;
+
+struct mime_type_t {
+	MIME_EXTENTION_LIST_NO extension;
+	MIME_CLASS_LIST_NO mime_class;
+	MIME_PROTOCOL_LIST_NO mime_protocol;	
+};
+
+char *mime_get_extension (struct mime_type_t *mime);
+char *mime_get_class (struct mime_type_t *mime);
+char *mime_get_protocol (struct mime_type_t *mime);
+
+#endif /* _MIME_H */

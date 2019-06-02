@@ -1,0 +1,14 @@
+1. There is two way to build NAS
+  A.naspackage
+  B.prerequisites
+  method A is recommended
+
+2. How to build NAS  
+  just include method Makefile in your build Makefile:
+  A.include $(TOPDIR)/apps/nas/naspackage/Makefile
+  B.include $(TOPDIR)/apps/nas/prerequistes/Makefile
+  
+3. Detail of NAS build process, please read method Makefile
+  and choose target as you need
+  
+4. About NAS configure, please refer to web_server NAS module
